@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Grigorov">
+
+    <title>Jobify | Jobs List View</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="css/jobify.css" rel="stylesheet">
+    <link href="css/jquery.steps.css" rel="stylesheet">
+
+    <!-- Include Bootstrap Datepicker -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="post-resume" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo.png" alt="Jobify Logo"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav col-sm-7">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Candidates <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="page-scroll" href="#">Jobs</a></li>
+                            <li><a class="page-scroll" href="#">Another action</a></li>
+                            <li><a class="page-scroll" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#popular_categories">Categories</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="contacts.html">Contacts</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#employeeModal" data-toggle="modal" class="btn btn-primary rounded postJob">Post a job</a></li>
+                    <li class="active">
+                        <!-- Button trigger modal -->
+                        <a data-toggle="modal" href="#loginModal" data-backdrop="true" class="btn btn-primary rounded ml-15"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to have you back!</h3>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="emai">Email address</label>
+                                <input type="email" class="form-control" name="email" id="emai" aria placeholder="Your email" autofocus="autofocus">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Your password">
+                            </div>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Sign in to your account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">New here? <a data-toggle="modal" data-dismiss="modal" href="#signupModal" data-backdrop="true">Create an Jobify account</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to see you here!</h3>
+                    <p class="text-center">Let’s set up your account in just a couple of steps.</p>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="fName">First name</label>
+                                <input type="text" class="form-control" name="fName" id="fName" placeholder="Your first name" autofocus="autofocus">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="lName">Last name</label>
+                                <input type="text" class="form-control" name="lName" id="lName" placeholder="Your last name">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="emai">Email address</label>
+                                <input type="email" class="form-control" name="email" id="emai" aria placeholder="Your email">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <p class="terms center">By creating an account you agree to our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Set up your Jobify account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">Already got an account? <a data-toggle="modal" data-dismiss="modal" href="#loginModal" data-backdrop="true">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post a job Modal -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to see you here!</h3>
+                    <p class="text-center">Let’s set up your account in just a couple of steps.</p>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="country">Select your country</label>
+                                <select class="form-control">
+                                    <option>Bulgaria</option>
+                                    <option>France</option>
+                                    <option>Italy</option>
+                                    <option>Russia</option>
+                                    <option>Ukraine</option>
+                                </select>
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="">What is your organization</label>
+                                <div class="checkbox">
+                                    <label for="self-emoployed">
+                                        <input type="checkbox" value="" name="self-emoployed" id="self-emoployed">
+                                        Self-Employed
+                                    </label>
+                                    <label for="state">
+                                        <input type="checkbox" value="" name="self-emoployed" id="state">
+                                        State/Common 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="eik">EIK / BULSTAT</label>
+                                <input type="text" class="form-control" id="eik" name="eik" placeholder="Your last name">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <p class="terms center">By creating an account you agree to our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Set up your Jobify account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">Already got an account? <a data-toggle="modal" data-dismiss="modal" href="#loginModal" data-backdrop="true">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="mt-100 bg-light-gray" id="post-resume">
+        <div class="container">
+            <h2 class="section-heading text-center">Post resume</h2>
+            <h3 class="section-subheading text-muted text-center">Lorem ipsum dolor sit amet consectetur.</h3>
+            <form id="profileForm" method="post" class="form-horizontal">
+                <h2></h2>
+                <section data-step="0">
+                    <h2 class="lead">Contact Info</h2>
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">First name</label>
+                            <input type="text" class="form-control input-lg" required name="firstName" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Last name</label>
+                            <input type="text" class="form-control input-lg" required name="lastName" placeholder="" />
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group col-lg-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy">Date of birth</label>
+                            <input type="text" class="form-control input-lg" name="dob" />
+                        </div>
+                    </div> -->
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy">Birthday</label>
+                            <input type="text" class="form-control input-lg" data-date-format="dd/mm/yyyy"name="dob" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Address</label>
+                            <input type="text" class="form-control input-lg" required name="address" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Phone number</label>
+                            <input type="text" class="form-control input-lg" required name="phoneNumber" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Email</label>
+                            <input type="email" class="form-control input-lg" required name="email" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <hr>
+                    </div>
+
+                    <h2 class="lead">General Info</h2>
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Position</label>
+                            <input type="text" class="form-control input-lg" name="position" required placeholder="" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Language</label>
+                            <input type="text" class="form-control input-lg" name="language" required placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Years of experience</label>
+                            <input type="text" class="form-control input-lg" required name="yoe" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Highest Degree Level</label>
+                            <input type="text" class="form-control input-lg" required name="hdl" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">expected job type</label>
+                            <input type="text" class="form-control input-lg" required name="ejt" placeholder="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                        <div class="col-xs-12 col-lg-12">
+                            <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">expected job location</label>
+                            <input type="text" class="form-control input-lg" required name="ejl" placeholder="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <hr>
+                    </div>
+
+                    <h2 class="lead">Introduce about yourself </h2>
+                    <div class="form-group col-lg-12 col-xs-12">
+                        <textarea name="bio" id="bio" cols="30" rows="10" class="form-control input-lg"></textarea>
+                    </div>
+                </section>
+
+                <h2></h2>
+                <section data-step="1">
+                    <h2 class="lead">Education</h2>
+                    <div class="single_education col-lg-12 col-xs-12 bg-light-gray pt-15 pb-15 rounded">
+                        <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">School</label>
+                                <input type="text" class="form-control input-lg" name="ejt" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-xs-6">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-6 control-label pl-0 text-left required navy">Field of study</label>
+                                <input type="text" class="form-control input-lg" required name="ejt" placeholder="" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-8 col-xs-8">
+                            <div class="col-xs-6 col-lg-6">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left required navy">From</label>
+                                <input type="text" class="form-control input-lg" name="dob" placeholder="">
+                            </div>
+                            <div class="col-xs-6 col-lg-6">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left required navy">To</label>
+                                <input type="text" class="form-control input-lg" name="dob" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-4 col-xs-4">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy">Degree</label>
+                                <input type="text" class="form-control input-lg" name="degree" placeholder="" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12">
+                                <label class="col-xs-12 col-lg-6 col-md-6 control-label pl-0 text-left navy">Description</label>
+                                <textarea name="descr" id="" cols="30" rows="10" class="form-control input-lg"></textarea>
+                            </div>
+                        </div>
+                    </div> <!-- end /.single_education -->
+                    <div class="col-lg-12 col-xs-12 pl-30">
+                        <a href="" class="text-success col-lg-4 col-xs-5 mt-10 text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add next education</a>
+                        <a href="" class="text-danger pull-right mt-10 mr-60 text-uppercase"><i class="fa fa-trash"></i> Delete this</a>
+                    </div>
+                    <div class="col-lg-12 col-xs-12">
+                        <hr>
+                    </div>
+
+                    <h2 class="lead">Experience</h2>
+                    <div class="single_experience col-lg-12 col-xs-12 bg-light-gray pt-15 pb-15 rounded">
+                        <div class="form-group col-lg-6 col-xs-6">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-6 control-label pl-0 text-left navy required">Company Name</label>
+                                <input type="text" class="form-control input-lg" required name="ejt" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6 col-xs-6">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-6 control-label pl-0 text-left required navy">Job role</label>
+                                <input type="text" class="form-control input-lg" required name="job-role" placeholder="" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-xs-12">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left required navy">Job Location</label>
+                                <input type="text" class="form-control required input-lg" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-xs-12">
+                            <div class="col-xs-6 col-lg-4 col-xs-4">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left required navy">From</label>
+                                <input type="text" class="form-control input-lg" name="dob" placeholder="">
+                            </div>
+                            <div class="col-xs-6 col-lg-4 col-xs-4">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left required navy">To</label>
+                                <input type="text" class="form-control input-lg" name="dob" placeholder="">
+                            </div>
+                            <p class="mt-10 col-lg-4 col-xs-4">
+                                <input type="checkbox" id="eduTraining">
+                                <label for="eduTraining" class="text-uppercase mt-20">I'm currently work here</label>
+                            </p>
+                        </div>
+
+                        <div class="form-group col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                                <label class="col-xs-12 col-md-12 col-sm-12 col-lg-6 control-label pl-0 text-left navy">Description</label>
+                                <textarea name="descr" id="" cols="30" rows="10" class="form-control input-lg"></textarea>
+                            </div>
+                        </div>
+                    </div> <!-- end /.single_education -->
+                    <div class="col-lg-12 col-xs-12 pl-30">
+                        <a href="" class="text-success col-lg-4 col-xs-5 mt-10 text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add next experience</a>
+                        <a href="" class="text-danger pull-right mt-10 mr-60 text-uppercase"><i class="fa fa-trash"></i> Delete this</a>
+                    </div>
+                    <div class="col-lg-12 col-xs-12">
+                        <hr>
+                    </div>
+
+                    <h2 class="lead">Skills</h2>
+                    <div class="single_skills col-lg-12 col-xs-12 bg-light-gray pt-15 pb-15 rounded">
+                        <div class="form-group col-lg-12">
+                            <div class="col-xs-8 col-lg-9">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left navy">Skill name</label>
+                                <input type="text" class="form-control input-lg" name="skill-name" placeholder="">
+                            </div>
+                            <div class="col-xs-4 col-lg-3">
+                                <label class="col-xs-12 col-lg-12 col-md-12 control-label pl-0 text-left">% <small class="navy text-uppercase">(Skill name)</small></label>
+                                <input type="text" class="form-control input-lg" name="skill-percentage" placeholder="">
+                            </div>
+                        </div>
+                    </div> <!-- end /.single_education -->
+                    <div class="col-lg-12 col-xs-12 pl-30">
+                        <a href="" class="text-success col-lg-4 col-xs-5 mt-10 text-uppercase"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add next skill</a>
+                        <a href="" class="text-danger pull-right mt-10 mr-60 text-uppercase"><i class="fa fa-trash"></i> Delete this</a>
+                    </div>
+                    <div class="col-lg-12 col-xs-12">
+                        <hr>
+                    </div>
+                </section>
+
+                <h2></h2>
+                <section data-step="2">
+                    <h2 class="lead">Preview</h2>
+                    <header class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bbg">
+                        <div class="col-lg-2">
+                            <img src="http://demo.evenfly.com/themes/cvstrap/img/bappy.jpg" alt="" class="img-responsive thumbnail">
+                        </div>
+                        <div class="col-lg-10">
+                            <h2 class="lead mb-0" id="user-name">Daniel Grigorov</h2>
+                            <p class="lead text-muted mb-0" id="user-title">UI/UX Designer</p>
+                            <small class="text-muted" id="user-location"><span class="navy">Manhattan</span>, NYC, USA</small>
+                            <small class="text-muted navy" id="user-mobile">(+01)-212-322-5732</small>
+                            <small class="text-muted navy" id="user-email">(+01)-212-322-5732</small>
+                        </div>
+                    </header>
+                    <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bbg">
+                        <h2 class="lead text-capitalized">About me</h2>
+                        <p>Text from Introduce about yourself. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis fuga, nobis cumque exercitationem totam debitis soluta commodi animi, eos repudiandae eius ipsam nihil, non molestias excepturi consequatur sequi ex obcaecati.</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bbg">
+                        <h2 class="lead text-capitalized">Work experience</h2>
+                        <div class="single_work_experience col-lg-10 col-xs-10 col-md-10">
+                            <p class="job-role text-uppercase">Ui/ux designer</p>
+                            <p class="company-name text-uppercase">banana inc.</p>
+                            <small id="period" class="highlight-yellow">May 2015 - December 2016</small>
+                            <p class="text-muted" id="job-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, iure, molestias. Deleniti, totam, saepe. Harum, quis deserunt dolores reiciendis ab dolorum non rerum, accusantium, nesciunt laborum illo esse hic quaerat!</p>
+                        </div>
+                        <div class="col-lg-2 col-xs-2 col-md-2 col-sm-2">
+                            <img src="http://demo.evenfly.com/themes/cvstrap/img/bappy.jpg" alt="" class="img-responsive thumbnail">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bbg">
+                        <h2 class="lead text-capitalized">Education</h2>
+                        <div class="single_edu_experience col-lg-12 col-xs-12 col-md-12 mb-20">
+                            <p class="university-name text-uppercase">Massachusetts Institute of Technology - MIT</p>
+                            <p class="degree-name navy text-uppercase">bachelor of computer science</p>
+                            <small id="period" class="highlight-yellow">2008 - 2012</small>
+                        </div>
+                        <div class="single_edu_experience col-lg-12 col-xs-12 col-md-12 mb-20">
+                            <p class="university-name text-uppercase">School of arts &amp; sciences of stanford university</p>
+                            <p class="company-name text-uppercase">bachelor of art sciences</p>
+                            <small id="period" class="highlight-yellow">2010 - 2014</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bbg">
+                        <h2 class="lead text-capitalized">Skills</h2>
+                        <small class="tag text-capitalized">Photoshop CC</small>
+                        <small class="tag text-capitalized">Adobe premerier</small>
+                        <small class="tag text-capitalized">HTML 5/CSS 3</small>
+                    </div>
+                </section>
+            </form>
+
+            <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Welcome</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center">Thanks for signing up</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>    
+    
+
+    
+    
+
+    <footer class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-6 col-lg-4">
+                    <span class="copyright">Copyright &copy; Jobify (NBU Students Project)</span>
+                </div>
+                <div class="col-md-4 col-xs-6 col-lg-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12 col-lg-4 text-center">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="http://formvalidation.io/vendor/formvalidation/js/formValidation.min.js"></script>
+    <script src="http://formvalidation.io/vendor/formvalidation/js/framework/bootstrap.min.js"></script>
+    <script src="js/jquery.steps.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="js/jobify.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel Grigorov">
+
+    <title>Jobify | Home</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:100,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="css/jobify.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="manage-applications" class="index bg-light-gray">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo.png" alt="Jobify Logo"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav col-sm-7">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Candidates <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="page-scroll" href="#featured-jobs">Jobs</a></li>
+                            <li><a class="page-scroll" href="#">Another action</a></li>
+                            <li><a class="page-scroll" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#popular_categories">Categories</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="contacts.html">Contacts</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#employeeModal" data-toggle="modal" class="btn btn-primary rounded postJob">Post a job</a></li>
+                    <li class="active">
+                        <!-- Button trigger modal -->
+                        <a data-toggle="modal" href="#loginModal" data-backdrop="true" class="btn btn-primary rounded ml-15"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to have you back!</h3>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="emai">Email address</label>
+                                <input type="email" class="form-control" name="email" id="emai" aria-describedby="emailHelp" placeholder="Your email" autofocus="autofocus">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Your password">
+                            </div>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Sign in to your account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">New here? <a data-toggle="modal" data-dismiss="modal" href="#signupModal" data-backdrop="true">Create an Jobify account</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to see you here!</h3>
+                    <p class="text-center">Let’s set up your account in just a couple of steps.</p>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="fName">First name</label>
+                                <input type="text" class="form-control" name="fName" id="fName" placeholder="Your first name" autofocus="autofocus">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="lName">Last name</label>
+                                <input type="text" class="form-control" name="lName" id="lName" placeholder="Your last name">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="emai">Email address</label>
+                                <input type="email" class="form-control" name="email" id="emai" aria-describedby="emailHelp" placeholder="Your email">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <p class="terms center">By creating an account you agree to our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Set up your Jobify account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">Already got an account? <a data-toggle="modal" data-dismiss="modal" href="#loginModal" data-backdrop="true">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post a job Modal -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/logo.png" alt="Jobify Logo" width="130px">
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Great to see you here!</h3>
+                    <p class="text-center">Let’s set up your account in just a couple of steps.</p>
+                    <div class="row">
+                        <form method="POST" action="" class="col-lg-10" id="loginForm">
+                            <div class="form-group">
+                                <label for="country">Select your country</label>
+                                <select class="form-control">
+                                    <option>Bulgaria</option>
+                                    <option>France</option>
+                                    <option>Italy</option>
+                                    <option>Russia</option>
+                                    <option>Ukraine</option>
+                                </select>
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="">What is your organization</label>
+                                <div class="checkbox">
+                                    <label for="self-emoployed">
+                                        <input type="checkbox" value="" name="self-emoployed" id="self-emoployed">
+                                        Self-Employed
+                                    </label>
+                                    <label for="state">
+                                        <input type="checkbox" value="" name="self-emoployed" id="state">
+                                        State/Common 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="eik">EIK / BULSTAT</label>
+                                <input type="text" class="form-control" id="eik" name="eik" placeholder="">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <p class="terms center">By creating an account you agree to our <a href="#">Terms and Conditions</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <input class="btn btn-primary col-lg-12" name="commit" type="submit" value="Set up your Jobify account">
+                        </form>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">Already got an account? <a data-toggle="modal" data-dismiss="modal" href="#loginModal" data-backdrop="true">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="header_yellow col-lg-12" id="register-company-header">
+        <div class="container">
+            <div class="col-lg-1-5">
+                <img src="img/team/2.jpg" alt="" class="img-responsive img-circle">
+            </div>
+            <div class="col-lg-6">
+                <h3 id="user-name">Daniel Grigorov</h3>
+                <h5 id="user-title">UI/UX Designer</h5>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Control Panel Aside -->
+        <aside class="col-xs-3 col-lg-3 panel">
+            <div class="row">
+                <ul> 
+                    <li class="dropdown-header">Manage Account</li> 
+                    <li><a class="navy text-capitalized" href="#">My Resumes</a></li> 
+                    <li><a class="navy text-capitalized" href="#">Bookmarked jobs</a></li> 
+                    <li><a class="navy text-capitalized" href="#">Notifications <span class="badge">5</span></a></li> 
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Manage jobs</li> 
+                    <li class="active"><a class="navy text-capitalized" href="#">manage applications</a></li> 
+                    <li><a class="navy text-capitalized" href="#">job alerts</a></li> 
+                    <li role="separator" class="divider"></li>
+                    <li><a class="navy text-capitalized" href="#">change password</a></li> 
+                    <li><a class="navy text-capitalized" href="#">sign out</a></li> 
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Featured Jobs Section -->
+        <section class="manage_applications rounded col-xs-12 col-md-8 col-lg-8">
+            <div class="table-responsive table-hover">
+                <p class="lead">Manage Applications</p>
+                <table class="table non_border">
+                    <tbody>
+                        <tr>
+                            <td scope="row" class="job-title">
+                                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158f3dee89f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158f3dee89f%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2275.5%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" class="rounded float-xs-left mr-15" alt="">
+                                <p class="h4">Web designer needed</p>
+                                <p class="company-name"><a href="#">Whale Creative</a></p>
+                            </td>
+                            <td>
+                                <p class="btn btn-success rounded contract">Full time</p>
+                            </td>
+                            <td>
+                                <p class="date">Nov 14 <sup>th</sup>, 2016</p>
+                            </td>
+                            <td>
+                                <p class="text-danger">Rejected</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" class="job-title">
+                                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158f3dee89f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158f3dee89f%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2275.5%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" class="rounded float-xs-left mr-15" alt="">
+                                <p class="h4">Looking for a project leader</p>
+                                <p class="company-name"><a href="#">Evoweet</a></p>
+                            </td>
+                            <td>
+                                <p class="btn btn-warning rounded contract">Part time</p>
+                            </td>
+                            <td>
+                                <p class="date">Nov 14 <sup>th</sup>, 2016</p>
+                            </td>
+                            <td>
+                                <p class="text-success">Approved</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" class="job-title">
+                                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158f3dee89f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158f3dee89f%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2275.5%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" class="rounded float-xs-left mr-15" alt="">
+                                <p class="h4">Looking for a project leader</p>
+                                <p class="company-name"><a href="#">Whale Creative</a></p>
+                            </td>
+                            <td>
+                                <p class="btn btn-danger rounded contract">Freelancer</p>
+                            </td>
+                            <td>
+                                <p class="date">Nov 14 <sup>th</sup>, 2016</p>
+                            </td>
+                            <td>
+                                <p class="text-muted">Processed</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer class="col-lg-12 col-xs-12 col-md-12 col-sm-12 bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-6 col-lg-4">
+                    <span class="copyright">Copyright &copy; Jobify (NBU Students Project)</span>
+                </div>
+                <div class="col-md-4 col-xs-6 col-lg-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12 col-lg-4 text-center">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/jobify.min.js"></script>
+
+</body>
+
+</html>
